@@ -106,4 +106,3 @@ TableRow _buildTableRow(String label, String value) {
     ],
   );
 }
-
