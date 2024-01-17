@@ -177,7 +177,7 @@ class _homePageState extends State<homePage> {
           MaterialPageRoute(
               builder: (context) => MongoDbDisplay(idNum: getResult)));
     } on PlatformException {
-      getResult = 'Failed to scan QR Code';
+      getResult = 'Failed to scan QR Code. Please try again.';
     }
   }
 }
