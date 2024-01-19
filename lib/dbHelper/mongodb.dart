@@ -4,12 +4,17 @@ import '../LicenseDataBase/MongoDbModelEditForLicense.dart';
 import 'constant.dart';
 
 class MongoDatabase{
-  static var db , userCollection;
+  static var db, db_RE, userCollection, collection_RE ;
   static connect() async{
     db = await Db.create(MONGO_CONN_URL);
     await db.open();
     inspect(db);
     userCollection = db.collection(USER_COLLECTION);
+
+    db_RE = await Db.create(MONGO_RE_LI_CONN_URL);
+    await db_RE.open();
+    inspect(db_RE);
+    collection_RE = db_RE.collection(RE_LI_COLLECTION);
   }
 
   static Future<List<Map<String,dynamic>>> getData() async{
