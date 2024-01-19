@@ -1,10 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
+
 import 'package:untitled27/Home%20Page.dart';
 import 'package:untitled27/Firebase/Signup%20page.dart';
-import 'package:untitled27/testingpage.dart';
-import 'firebase_options.dart';
 
 class loginPage extends StatefulWidget {
   const loginPage({super.key});
@@ -29,7 +27,6 @@ class _loginPageState extends State<loginPage> {
               children: [
                 const Text(
                   "Welcome Officer!",
-                  textAlign: TextAlign.right,
                   style: TextStyle(
                       fontSize: 35,
                       fontWeight: FontWeight.bold,
@@ -38,11 +35,11 @@ class _loginPageState extends State<loginPage> {
                 const Text(
                   'Please log into your account.',
                   style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 18,
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 126, 127, 128)),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 60,
                 ),
                 TextField(
@@ -178,7 +175,7 @@ class MainActionButton extends StatelessWidget {
         child: Text(
           text,
           style: const TextStyle(
-              fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.white),
+              fontSize: 18.0, fontWeight: FontWeight.bold, color: Colors.white),
         ),
       ),
     );
