@@ -68,6 +68,7 @@ class _loginPageState extends State<loginPage> {
                 const SizedBox(height: 16.0),
                 TextField(
                   controller: _pwd,
+                  obscureText: true,
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: const Color.fromARGB(255, 114, 114, 114),
