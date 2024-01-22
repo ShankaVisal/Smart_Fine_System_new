@@ -6,6 +6,15 @@ import 'package:untitled27/testingpage.dart';
 
 import 'LicenseDataBase/displayEditForLicense.dart';
 
+final ButtonStyle mainCardStyle = ElevatedButton.styleFrom(
+  elevation: 20,
+  backgroundColor: const Color.fromARGB(51, 217, 217, 217),
+  padding: const EdgeInsets.only(left: 20, top: 10, bottom: 10, right: 10),
+  shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(30.0),
+  ),
+);
+
 class homePage extends StatefulWidget {
   final String name;
   final String pageName;
@@ -81,12 +90,7 @@ class _homePageState extends State<homePage> {
                   onPressed: () {
                     scanQRCode();
                   },
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(51, 217, 217, 217),
-                      padding: const EdgeInsets.only(
-                          left: 20, top: 10, bottom: 10, right: 10),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0))),
+                  style: mainCardStyle,
                   child: const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -100,7 +104,10 @@ class _homePageState extends State<homePage> {
                       CircleAvatar(
                         radius: 30,
                         backgroundColor: Colors.blue,
-                        child: Icon(Icons.power_settings_new),
+                        child: Icon(
+                          Icons.power_settings_new,
+                          size: 30,
+                        ),
                       ),
                     ],
                   ),
@@ -113,12 +120,7 @@ class _homePageState extends State<homePage> {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => testing()));
                   },
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(51, 217, 217, 217),
-                      padding: const EdgeInsets.only(
-                          left: 20, top: 10, bottom: 10, right: 10),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0))),
+                  style: mainCardStyle,
                   child: const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -132,7 +134,10 @@ class _homePageState extends State<homePage> {
                       CircleAvatar(
                         radius: 30,
                         backgroundColor: Colors.blue,
-                        child: Icon(Icons.settings_overscan),
+                        child: Icon(
+                          Icons.settings_overscan,
+                          size: 30,
+                        ),
                       )
                     ],
                   ),
@@ -145,12 +150,7 @@ class _homePageState extends State<homePage> {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => testing()));
                   },
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(51, 217, 217, 217),
-                      padding: const EdgeInsets.only(
-                          left: 20, top: 10, bottom: 10, right: 10),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0))),
+                  style: mainCardStyle,
                   child: const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -164,7 +164,10 @@ class _homePageState extends State<homePage> {
                       CircleAvatar(
                         radius: 30,
                         backgroundColor: Colors.blue,
-                        child: Icon(Icons.money),
+                        child: Icon(
+                          Icons.money,
+                          size: 30,
+                        ),
                       )
                     ],
                   ),
@@ -177,12 +180,7 @@ class _homePageState extends State<homePage> {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => testing()));
                   },
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(51, 217, 217, 217),
-                      padding: const EdgeInsets.only(
-                          left: 20, top: 10, bottom: 10, right: 10),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0))),
+                  style: mainCardStyle,
                   child: const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -196,7 +194,10 @@ class _homePageState extends State<homePage> {
                       CircleAvatar(
                         radius: 30,
                         backgroundColor: Colors.blue,
-                        child: Icon(Icons.history),
+                        child: Icon(
+                          Icons.history,
+                          size: 30,
+                        ),
                       )
                     ],
                   ),
