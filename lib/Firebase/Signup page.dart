@@ -59,6 +59,7 @@ class _signUpPageState extends State<signUpPage> {
                   ),
                   const SizedBox(height: 16.0),
                   TextField(
+                    obscureText: true,
                     controller: _pwd,
                     decoration: InputDecoration(
                       labelText: 'Password',
@@ -71,6 +72,7 @@ class _signUpPageState extends State<signUpPage> {
                   ),
                   const SizedBox(height: 16.0),
                   TextField(
+                    obscureText: true,
                     controller: _rePwd,
                     decoration: InputDecoration(
                       labelText: 'Re Enter Password',
