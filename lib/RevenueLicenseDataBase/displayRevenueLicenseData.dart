@@ -35,8 +35,9 @@ class _DisplayDataState extends State<DisplayData> {
                 suffixIcon: IconButton(
                   onPressed: () {
                     setState(() {
+                      String upperCaseVehicleNumber = _vehicleNumberController.text.toUpperCase();
                       data = MongoDatabase.getDataFromRevenue(
-                        _vehicleNumberController.text,
+                        upperCaseVehicleNumber,
                       );
                     });
                   },
