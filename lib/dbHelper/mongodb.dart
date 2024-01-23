@@ -22,6 +22,11 @@ class MongoDatabase{
     return arrData;
   }
 
+  static Future<List<Map<String,dynamic>>> getDataFromRevenue() async{
+    final arrDataRE = await collection_RE.find().toList();
+    return arrDataRE;
+  }
+
   // static Future<void> Update(MongoDbModel data) async{
   //   var result = await userCollection.findOne({"_id" : data.id});
   //   result['firstName'] = data.firstName;
