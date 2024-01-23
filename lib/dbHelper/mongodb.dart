@@ -22,8 +22,8 @@ class MongoDatabase{
     return arrData;
   }
 
-  static Future<List<Map<String,dynamic>>> getDataFromRevenue() async{
-    final arrDataRE = await collection_RE.find().toList();
+  static Future<List<Map<String,dynamic>>> getDataFromRevenue(String vehicle_num) async{
+    final arrDataRE = await collection_RE.find(where.eq('vehicle_number', vehicle_num)).toList();
     return arrDataRE;
   }
 

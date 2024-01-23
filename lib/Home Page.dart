@@ -5,6 +5,7 @@ import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:untitled27/testingpage.dart';
 
 import 'LicenseDataBase/displayEditForLicense.dart';
+import 'RevenueLicenseDataBase/displayRevenueLicenseData.dart';
 
 class homePage extends StatefulWidget {
   final String name;
@@ -106,7 +107,7 @@ class _homePageState extends State<homePage> {
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => testing()));
+                        MaterialPageRoute(builder: (context) => DisplayData()));
                   },
                   style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.all(20),
