@@ -5,6 +5,7 @@ import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:untitled27/testingpage.dart';
 
 import 'LicenseDataBase/displayEditForLicense.dart';
+import 'RevenueLicenseDataBase/displayRevenueLicenseData.dart';
 
 final ButtonStyle mainCardStyle = ElevatedButton.styleFrom(
   elevation: 20,
@@ -118,7 +119,7 @@ class _homePageState extends State<homePage> {
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => testing()));
+                        MaterialPageRoute(builder: (context) => DisplayData()));
                   },
                   style: mainCardStyle,
                   child: const Row(
