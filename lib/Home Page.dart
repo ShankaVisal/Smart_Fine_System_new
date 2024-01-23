@@ -7,6 +7,15 @@ import 'package:untitled27/testingpage.dart';
 import 'LicenseDataBase/displayEditForLicense.dart';
 import 'RevenueLicenseDataBase/displayRevenueLicenseData.dart';
 
+final ButtonStyle mainCardStyle = ElevatedButton.styleFrom(
+  elevation: 20,
+  backgroundColor: const Color.fromARGB(51, 217, 217, 217),
+  padding: const EdgeInsets.only(left: 20, top: 10, bottom: 10, right: 10),
+  shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(30.0),
+  ),
+);
+
 class homePage extends StatefulWidget {
   final String name;
   final String pageName;
@@ -36,7 +45,7 @@ class _homePageState extends State<homePage> {
           elevation: 0,
           actions: const [
             Padding(
-              padding: EdgeInsets.only(top: 10, right: 10),
+              padding: EdgeInsets.only(top: 30, right: 10),
               child: CircleAvatar(
                 backgroundImage: NetworkImage(
                   "https://shankavisal.github.io/SV-creations/assets/img/products/ssc.png",
@@ -47,17 +56,16 @@ class _homePageState extends State<homePage> {
           ],
         ),
         body: Padding(
-          padding: const EdgeInsets.only(left: 10, right: 10),
-          child: Center(
-              child: SingleChildScrollView(
+          padding: const EdgeInsets.only(top: 70, left: 30, right: 30),
+          child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   customizedText,
                   style: const TextStyle(
-                    fontSize: 50.0,
-                    fontWeight: FontWeight.bold,
+                    fontSize: 35.0,
+                    fontWeight: FontWeight.w900,
                     color: Colors.white,
                     shadows: [
                       Shadow(
@@ -68,20 +76,14 @@ class _homePageState extends State<homePage> {
                   ),
                 ),
                 const SizedBox(
-                  height: 10,
+                  height: 5,
                 ),
                 Text(
                   'Hii  ${widget.name}',
                   style: const TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    shadows: [
-                      Shadow(
-                          color: Colors.white,
-                          blurRadius: 2.0,
-                          offset: Offset(0.25, 0.25))
-                    ],
+                    color: Color.fromARGB(255, 126, 127, 128),
                   ),
                 ),
                 const SizedBox(height: 30),
@@ -89,15 +91,25 @@ class _homePageState extends State<homePage> {
                   onPressed: () {
                     scanQRCode();
                   },
-                  style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.all(20),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0))),
+                  style: mainCardStyle,
                   child: const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Scan QR Code"),
-                      Icon(Icons.power_settings_new)
+                      Text(
+                        "Scan QR Code",
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white),
+                      ),
+                      CircleAvatar(
+                        radius: 30,
+                        backgroundColor: Colors.blue,
+                        child: Icon(
+                          Icons.power_settings_new,
+                          size: 30,
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -109,15 +121,25 @@ class _homePageState extends State<homePage> {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => DisplayData()));
                   },
-                  style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.all(20),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0))),
+                  style: mainCardStyle,
                   child: const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Enter Vehicle Number"),
-                      Icon(Icons.settings_overscan)
+                      Text(
+                        "Enter Vehicle Number",
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white),
+                      ),
+                      CircleAvatar(
+                        radius: 30,
+                        backgroundColor: Colors.blue,
+                        child: Icon(
+                          Icons.settings_overscan,
+                          size: 30,
+                        ),
+                      )
                     ],
                   ),
                 ),
@@ -129,13 +151,26 @@ class _homePageState extends State<homePage> {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => testing()));
                   },
-                  style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.all(20),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0))),
+                  style: mainCardStyle,
                   child: const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [Text("Issue Fine"), Icon(Icons.money)],
+                    children: [
+                      Text(
+                        "Issue Fine",
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white),
+                      ),
+                      CircleAvatar(
+                        radius: 30,
+                        backgroundColor: Colors.blue,
+                        child: Icon(
+                          Icons.money,
+                          size: 30,
+                        ),
+                      )
+                    ],
                   ),
                 ),
                 const SizedBox(
@@ -146,18 +181,31 @@ class _homePageState extends State<homePage> {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => testing()));
                   },
-                  style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.all(20),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0))),
+                  style: mainCardStyle,
                   child: const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [Text("Fine History"), Icon(Icons.history)],
+                    children: [
+                      Text(
+                        "Fine History",
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white),
+                      ),
+                      CircleAvatar(
+                        radius: 30,
+                        backgroundColor: Colors.blue,
+                        child: Icon(
+                          Icons.history,
+                          size: 30,
+                        ),
+                      )
+                    ],
                   ),
                 ),
               ],
             ),
-          )),
+          ),
         ),
       ),
     );
