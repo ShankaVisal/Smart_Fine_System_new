@@ -11,14 +11,18 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  late double ScreenWidth;
+  late double ScreenHeight;
+
 
   @override
   Widget build(BuildContext context) {
+    ScreenWidth = MediaQuery.of(context).size.width;
+    ScreenHeight = MediaQuery.of(context).size.height;
     return MaterialApp(
       title: 'Smart Driving License Portal',
       debugShowCheckedModeBanner: false,
