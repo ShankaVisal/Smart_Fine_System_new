@@ -4,17 +4,27 @@ import '../LicenseDataBase/MongoDbModelEditForLicense.dart';
 import 'constant.dart';
 
 class MongoDatabase{
-  static var db , userCollection;
+  static var db, db_RE, userCollection, collection_RE ;
   static connect() async{
     db = await Db.create(MONGO_CONN_URL);
     await db.open();
     inspect(db);
     userCollection = db.collection(USER_COLLECTION);
+
+    db_RE = await Db.create(MONGO_RE_LI_CONN_URL);
+    await db_RE.open();
+    inspect(db_RE);
+    collection_RE = db_RE.collection(RE_LI_COLLECTION);
   }
 
   static Future<List<Map<String,dynamic>>> getData() async{
     final arrData = await userCollection.find().toList();
     return arrData;
+  }
+
+  static Future<List<Map<String,dynamic>>> getDataFromRevenue(String vehicle_num) async{
+    final arrDataRE = await collection_RE.find(where.eq('vehicle_number', vehicle_num)).toList();
+    return arrDataRE;
   }
 
   // static Future<void> Update(MongoDbModel data) async{
