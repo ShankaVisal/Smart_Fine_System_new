@@ -25,7 +25,7 @@ class _DisplayDataState extends State<DisplayData> {
         leading: Container(
           margin: const EdgeInsets.all(10),
           decoration: BoxDecoration(
-            color: Colors.blue,
+            color: const Color(0xFF005EA3),
             borderRadius: BorderRadius.circular(10),
             boxShadow: [
               BoxShadow(
