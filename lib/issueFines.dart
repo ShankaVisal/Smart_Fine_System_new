@@ -97,7 +97,7 @@ class _issueFinesState extends State<issueFines> {
                       }),
                       const Divider(
                         height: 10,
-                        color: Colors.blue,
+                        color: Color(0xFF005EA3),
                       ),
                       _checkboxRow(
                           "Driving without insurance – 20,000.00\nරක්ෂණයකින් තොරව රිය පැදවීම - 20,000.00",
@@ -109,7 +109,7 @@ class _issueFinesState extends State<issueFines> {
                       }),
                       const Divider(
                         height: 10,
-                        color: Colors.blue,
+                        color: Color(0xFF005EA3),
                       ),
                       _checkboxRow(
                           "Driving with wrong number plates – 10,000.00\nවැරදි අංක තහඩු සහිතව රිය පැදවීම - 10,000.00",
@@ -121,7 +121,7 @@ class _issueFinesState extends State<issueFines> {
                       }),
                       const Divider(
                         height: 10,
-                        color: Colors.blue,
+                        color: Color(0xFF005EA3),
                       ),
                       _checkboxRow(
                           "Using the car regardless of the terms of the license –30,000.00 + 15 days imprisonment\nබලපත්‍රයේ නියමයන් නොසලකා මෝටර් රථය භාවිතා කිරීම -30,000.00 + දින 15 සිර දඬුවම",
@@ -133,7 +133,7 @@ class _issueFinesState extends State<issueFines> {
                       }),
                       const Divider(
                         height: 10,
-                        color: Colors.blue,
+                        color: Color(0xFF005EA3),
                       ),
                       _checkboxRow(
                           "Driving without a driver’s license or license without plates – 5000.00\nරියදුරු බලපත්‍රයක් හෝ තහඩු නොමැතිව බලපත්‍රයක් නොමැතිව රිය පැදවීම - 5000.00",
@@ -145,7 +145,7 @@ class _issueFinesState extends State<issueFines> {
                       }),
                       const Divider(
                         height: 10,
-                        color: Colors.blue,
+                        color: Color(0xFF005EA3),
                       ),
                       _checkboxRow(
                           "Driving without a license or driver’s license – 2000.00\nබලපත්රයක් හෝ රියදුරු බලපත්රයක් නොමැතිව රිය පැදවීම - 2000.00",
@@ -157,7 +157,7 @@ class _issueFinesState extends State<issueFines> {
                       }),
                       const Divider(
                         height: 10,
-                        color: Colors.blue,
+                        color: Color(0xFF005EA3),
                       ),
                       _checkboxRow(
                           "Not having license or driver’s license when stopped – 10,000.00\nනතර කළ විට බලපත්‍රය හෝ රියදුරු බලපත්‍රය නොමැති වීම - 10,000.00",
@@ -169,7 +169,7 @@ class _issueFinesState extends State<issueFines> {
                       }),
                       const Divider(
                         height: 10,
-                        color: Colors.blue,
+                        color: Color(0xFF005EA3),
                       ),
                       _checkboxRow(
                           "Reckless driving without accident – 11,000.00\nඅනතුරකින් තොරව නොසැලකිලිමත් ලෙස රිය පැදවීම - 11,000.00",
@@ -181,7 +181,7 @@ class _issueFinesState extends State<issueFines> {
                       }),
                       const Divider(
                         height: 10,
-                        color: Colors.blue,
+                        color: Color(0xFF005EA3),
                       ),
                       _checkboxRow(
                           "Car collision by careless driving- 25,000.00\nනොසැලකිලිමත් ලෙස රිය පැදවීමෙන් මෝටර් රථ ගැටීම - 25,000.00",
@@ -193,7 +193,7 @@ class _issueFinesState extends State<issueFines> {
                       }),
                       const Divider(
                         height: 10,
-                        color: Colors.blue,
+                        color: Color(0xFF005EA3),
                       ),
                       _checkboxRow(
                           "Driving without seat belt – 2000.00\nආසන පටි නොමැතිව රිය පැදවීම - 2000.00",
@@ -205,7 +205,7 @@ class _issueFinesState extends State<issueFines> {
                       }),
                       const Divider(
                         height: 10,
-                        color: Colors.blue,
+                        color: Color(0xFF005EA3),
                       ),
                       _checkboxRow(
                           "Traveling with passengers without wearing seat belts – 2000.00\nආසන පටි පැළඳ නොගෙන මගීන් සමඟ ගමන් කිරීම - 2000.00",
@@ -217,7 +217,7 @@ class _issueFinesState extends State<issueFines> {
                       }),
                       const Divider(
                         height: 10,
-                        color: Colors.blue,
+                        color: Color(0xFF005EA3),
                       ),
                       _checkboxRow(
                           "Failure to obey traffic signs – 10,000.00\nමාර්ග සංඥා පිළිපැදීමට අපොහොසත් වීම - 10,000.00",
@@ -229,7 +229,7 @@ class _issueFinesState extends State<issueFines> {
                       }),
                       const Divider(
                         height: 10,
-                        color: Colors.blue,
+                        color: Color(0xFF005EA3),
                       ),
                       _checkboxRow(
                           "Failure to drive to the left when overtaking a vehicle – 5,000.00\nවාහනයක් අභිබවා යාමේදී වමට ධාවනය නොකිරීම - 5,000.00",
@@ -241,7 +241,7 @@ class _issueFinesState extends State<issueFines> {
                       }),
                       const Divider(
                         height: 10,
-                        color: Colors.blue,
+                        color: Color(0xFF005EA3),
                       ),
                       _checkboxRow(
                           "Overtaking on the left – 5,000.00\nවම් පසින් අභිබවා යාම - 5,000.00",
@@ -253,7 +253,7 @@ class _issueFinesState extends State<issueFines> {
                       }),
                       const Divider(
                         height: 10,
-                        color: Colors.blue,
+                        color: Color(0xFF005EA3),
                       ),
                       _checkboxRow(
                           "Not allowing other overtaking vehicles to pass – 5,000.00\nවෙනත් අභිබවා යන වාහන පසුකර යාමට ඉඩ නොදීම - 5,000.00",
@@ -265,7 +265,7 @@ class _issueFinesState extends State<issueFines> {
                       }),
                       const Divider(
                         height: 10,
-                        color: Colors.blue,
+                        color: Color(0xFF005EA3),
                       ),
                       _checkboxRow(
                           "Driving from the station obstructing the road- 4,000.00\nමාර්ගයට බාධා වන පරිදි දුම්රිය ස්ථානයෙන් රිය පැදවීම - 4,000.00",
@@ -277,7 +277,7 @@ class _issueFinesState extends State<issueFines> {
                       }),
                       const Divider(
                         height: 10,
-                        color: Colors.blue,
+                        color: Color(0xFF005EA3),
                       ),
                       _checkboxRow(
                           "Overtaking where the road is not visible – 9,000.00\nමාර්ගය නොපෙනෙන තැන අභිබවා යාම - 9,000.00",
@@ -289,7 +289,7 @@ class _issueFinesState extends State<issueFines> {
                       }),
                       const Divider(
                         height: 10,
-                        color: Colors.blue,
+                        color: Color(0xFF005EA3),
                       ),
                       _checkboxRow(
                           "Driving back more than two vehicle lengths to turn – 3,000.00\nහැරවීමට වාහන දිග දෙකකට වඩා පසුපසට ධාවනය කිරීම - 3,000.00",
@@ -301,7 +301,7 @@ class _issueFinesState extends State<issueFines> {
                       }),
                       const Divider(
                         height: 10,
-                        color: Colors.blue,
+                        color: Color(0xFF005EA3),
                       ),
                       _checkboxRow(
                           "Obstructing the free passage of the vehicle – 5,000.00\nවාහනයේ නිදහස් ගමනට බාධා කිරීම - 5,000.00",
@@ -313,7 +313,7 @@ class _issueFinesState extends State<issueFines> {
                       }),
                       const Divider(
                         height: 10,
-                        color: Colors.blue,
+                        color: Color(0xFF005EA3),
                       ),
                       _checkboxRow(
                           "Using mobile phone or other electronic device while driving – 10,000.00\nරිය පැදවීමේදී ජංගම දුරකථනය හෝ වෙනත් ඉලෙක්ට්‍රොනික උපකරණයක් භාවිතා කිරීම - 10,000.00",
@@ -325,7 +325,7 @@ class _issueFinesState extends State<issueFines> {
                       }),
                       const Divider(
                         height: 10,
-                        color: Colors.blue,
+                        color: Color(0xFF005EA3),
                       ),
                       _checkboxRow(
                           "Keeping an electronic device between the driver – 10,000.00ර\nියදුරු අතර ඉලෙක්ට්රොනික උපාංගයක් තබා ගැනීම - 10,000.00",
@@ -337,7 +337,7 @@ class _issueFinesState extends State<issueFines> {
                       }),
                       const Divider(
                         height: 10,
-                        color: Colors.blue,
+                        color: Color(0xFF005EA3),
                       ),
                     ],
                   ),
