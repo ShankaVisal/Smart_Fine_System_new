@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+import 'package:untitled27/PoliceOfficer%20account/Police%20officer%20details.dart';
+import 'package:untitled27/PoliceOfficer%20account/display%20police%20officer%20details.dart';
 
 import 'package:untitled27/testingpage.dart';
 
@@ -180,7 +182,7 @@ class _homePageState extends State<homePage> {
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => MyCheckbox()));
+                        MaterialPageRoute(builder: (context) => UserDetailsList()));
                   },
                   style: mainCardStyle,
                   child: const Row(
