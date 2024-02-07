@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:untitled27/Home%20Page.dart';
 
 import 'package:untitled27/Theme/dark%20Theme.dart';
 
@@ -28,7 +30,20 @@ class MyApp extends StatelessWidget {
       title: 'Smart Driving License Portal',
       debugShowCheckedModeBanner: false,
       theme: darkTheme,
-      home: const splashScreen(),
+      home: FutureBuilder(
+          future: FirebaseAuth.instance.authStateChanges().first, 
+          builder: (context, AsyncSnapshot<User?> snapshot){
+            if(snapshot.connectionState == ConnectionState.done){
+              if(snapshot.hasData){
+                return homePage(name: "name", pageName: "pasge name");
+              } else{
+                return splashScreen();
+              }
+            } else {
+              return splashScreen();
+            }
+          }
+      ),
     );
   }
 }
