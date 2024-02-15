@@ -28,7 +28,8 @@ class MyApp extends StatelessWidget {
     ScreenHeight = MediaQuery.of(context).size.height;
     return MaterialApp(
       title: 'Smart Driving License Portal',
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner:
+       false,
       theme: darkTheme,
       home: FutureBuilder(
           future: FirebaseAuth.instance.authStateChanges().first, 
