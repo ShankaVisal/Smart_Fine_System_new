@@ -1,10 +1,12 @@
 import 'dart:developer';
 import 'package:mongo_dart/mongo_dart.dart';
 import '../LicenseDataBase/MongoDbModelEditForLicense.dart';
+import '../MyGlobals.dart';
+import '../fines.dart';
 import 'constant.dart';
 
 class MongoDatabase{
-  static var db, db_RE, userCollection, collection_RE ;
+  static var db, db_RE, userCollection, collection_RE,  FINES_DB;
   static connect() async{
     db = await Db.create(MONGO_CONN_URL);
     await db.open();
@@ -15,6 +17,8 @@ class MongoDatabase{
     await db_RE.open();
     inspect(db_RE);
     collection_RE = db_RE.collection(RE_LI_COLLECTION);
+    FINES_DB = db_RE.collection(USER_FINES);
+
   }
 
   static Future<List<Map<String,dynamic>>> getData() async{
@@ -51,4 +55,56 @@ class MongoDatabase{
       return e.toString();
     }
   }
+
+  static Future<void> saveFinesToDatabase(int total) async {
+    db_RE = await Db.create(MONGO_RE_LI_CONN_URL);
+    await db_RE.open();
+    inspect(db_RE);
+    FINES_DB = db_RE.collection(USER_FINES);
+
+    // Get driver's information
+    String driverFirstName = globaldata().driverFirstName;
+    String driverLastName = globaldata().driverLastName;
+    String driverLicenseNumber = globaldata().driverLicenseNumber;
+    String DriverID = globaldata().DriverID;
+    String vehicleNumber = globaldata().vehicleNumber;
+
+    // Create a list to store fines
+    List<Map<String, dynamic>> finesList = [];
+
+    // Iterate over fines
+    for (var fine in fines) {
+      if (fine.isChecked) {
+        finesList.add({
+          'name': fine.name,
+          'amount': fine.amount,
+        });
+      }
+    }
+
+    // Get the current date
+    DateTime currentDate = DateTime.now();
+    // Format the date to include only the date part without the time
+    String formattedDate = "${currentDate.year}-${currentDate.month}-${currentDate.day}";
+
+
+    // Create the document to be inserted
+    final Map<String, dynamic> finesDocument = {
+      'driverFirstName': driverFirstName,
+      'driverLastName': driverLastName,
+      'driverLicenseNumber': driverLicenseNumber,
+      'driverID': DriverID,
+      'vehicleNumber': vehicleNumber,
+      'totalFine' : total,
+      'date' : formattedDate,
+      'fines': finesList, // Add the list of fines
+    };
+
+    // Insert the document into the database
+    await db_RE.collection(USER_FINES).insert(finesDocument);
+
+    await db_RE.close();
+    print('Fines added to MongoDB');
+  }
+
 }

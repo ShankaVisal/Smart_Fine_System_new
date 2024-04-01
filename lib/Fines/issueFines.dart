@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:untitled27/Firebase/Login%20page.dart';
-import 'package:untitled27/MyGlobals.dart';
-import 'package:untitled27/user%20fines.dart';
+import '../Firebase/Login page.dart';
+import '../fines.dart';
+import 'user fines.dart';
 
-import 'fines.dart';
 
 class issueFines extends StatefulWidget {
   @override
