@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../Firebase/Login page.dart';
-import '../fines.dart';
+import 'fines.dart';
 import 'user fines.dart';
 
 
