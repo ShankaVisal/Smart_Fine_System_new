@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:untitled27/MyGlobals.dart';
+
 import '../dbHelper/mongodb.dart';
-import 'fines.dart';
+import '../fines.dart';
 
 class userFines extends StatefulWidget {
   final int total;
