@@ -8,7 +8,7 @@ import 'package:untitled27/testingpage.dart';
 
 import 'LicenseDataBase/displayEditForLicense.dart';
 import 'RevenueLicenseDataBase/displayRevenueLicenseData.dart';
-import 'issueFines.dart';
+import 'fines/issueFines.dart';
 
 final ButtonStyle mainCardStyle = ElevatedButton.styleFrom(
   elevation: 20,
