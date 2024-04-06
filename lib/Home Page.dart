@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+import 'package:untitled27/HelpDesk.dart';
 import 'package:untitled27/PoliceOfficer%20account/Police%20officer%20details.dart';
 import 'package:untitled27/PoliceOfficer%20account/display%20police%20officer%20details.dart';
 
@@ -20,9 +21,8 @@ final ButtonStyle mainCardStyle = ElevatedButton.styleFrom(
 );
 
 class homePage extends StatefulWidget {
-  final String name;
   final String pageName;
-  const homePage({required this.name, required this.pageName});
+  const homePage({ required this.pageName});
 
   @override
   State<homePage> createState() => _homePageState();
@@ -81,14 +81,14 @@ class _homePageState extends State<homePage> {
                 const SizedBox(
                   height: 5,
                 ),
-                Text(
-                  'Hii  ${widget.name}',
-                  style: const TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 126, 127, 128),
-                  ),
-                ),
+                // Text(
+                //   'Hii  ${widget.name}',
+                //   style: const TextStyle(
+                //     fontSize: 20.0,
+                //     fontWeight: FontWeight.bold,
+                //     color: Color.fromARGB(255, 126, 127, 128),
+                //   ),
+                // ),
                 const SizedBox(height: 30),
                 ElevatedButton(
                   onPressed: () {
@@ -109,7 +109,7 @@ class _homePageState extends State<homePage> {
                         radius: 30,
                         backgroundColor: Colors.blue,
                         child: Icon(
-                          Icons.power_settings_new,
+                          Icons.qr_code_2,
                           size: 30,
                         ),
                       ),
@@ -139,7 +139,7 @@ class _homePageState extends State<homePage> {
                         radius: 30,
                         backgroundColor: Colors.blue,
                         child: Icon(
-                          Icons.settings_overscan,
+                          Icons.confirmation_num,
                           size: 30,
                         ),
                       )
@@ -149,36 +149,8 @@ class _homePageState extends State<homePage> {
                 const SizedBox(
                   height: 15,
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => issueFines()));
-                  },
-                  style: mainCardStyle,
-                  child: const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Issue Fine",
-                        style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                      CircleAvatar(
-                        radius: 30,
-                        backgroundColor: Colors.blue,
-                        child: Icon(
-                          Icons.money,
-                          size: 30,
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
+
+
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(context,
@@ -200,6 +172,36 @@ class _homePageState extends State<homePage> {
                         backgroundColor: Colors.blue,
                         child: Icon(
                           Icons.history,
+                          size: 30,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HelpDesk()));
+                  },
+                  style: mainCardStyle,
+                  child: const Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Help Desk",
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white),
+                      ),
+                      CircleAvatar(
+                        radius: 30,
+                        backgroundColor: Colors.blue,
+                        child: Icon(
+                          Icons.local_police,
                           size: 30,
                         ),
                       )

@@ -121,7 +121,6 @@ class _signUpPageState extends State<signUpPage> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) => homePage(
-                                      name: _user.text,
                                       pageName: 'sinup',
                                     )));
                       } catch (e) {
