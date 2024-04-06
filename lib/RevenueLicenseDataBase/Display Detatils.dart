@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled27/MyGlobals.dart';
 
 import '../dbHelper/mongodb.dart';
 
@@ -39,6 +40,7 @@ class _displayDetailsState extends State<displayDetails> {
               child: Text('No data available.'),
             );
           } else {
+            globaldata().vehicleNumber = widget.vehicleNumber;
             // Display the data in a ListView
             return ListView.builder(
               itemCount: snapshot.data!.length,

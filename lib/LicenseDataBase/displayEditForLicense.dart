@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled27/MyGlobals.dart';
 import 'MongoDbModelEditForLicense.dart';
 import '../dbHelper/mongodb.dart';
 
@@ -11,6 +12,23 @@ class MongoDbDisplay extends StatefulWidget {
 }
 
 class _MongoDbDisplayState extends State<MongoDbDisplay> {
+  late Future<List<MongoDbModel1>> _dataFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    _dataFuture = _getData();
+  }
+
+  Future<List<MongoDbModel1>> _getData() async {
+    final data = await MongoDatabase.getData();
+    return data
+        .where((item) =>
+    item['licenseNum'].toString().toLowerCase() ==
+        widget.idNum.toLowerCase())
+        .map((item) => MongoDbModel1.fromJson(item))
+        .toList();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,35 +39,31 @@ class _MongoDbDisplayState extends State<MongoDbDisplay> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: FutureBuilder(
-            future: MongoDatabase.getData(),
-            builder: (context, AsyncSnapshot snapshot) {
+          child: FutureBuilder<List<MongoDbModel1>>(
+            future: _dataFuture,
+            builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Center(
                   child: CircularProgressIndicator(),
                 );
               } else {
                 if (snapshot.hasData) {
-                  var filteredData = snapshot.data
-                      .where((item) =>
-                  item['licenseNum'].toString().toLowerCase() ==
-                      widget.idNum.toLowerCase())
-                      .toList();
-                  var totalData = filteredData.length;
-                  print('Total Data' + totalData.toString());
-                  if (totalData > 0) {
-                    return ListView.builder(
-                      itemCount: totalData,
-                      itemBuilder: (context, index) {
-                        return displayCard(
-                            MongoDbModel1.fromJson(filteredData[index]));
-                      },
-                    );
-                  } else {
+                  if (snapshot.data!.isEmpty) {
                     return Center(
                       child: Text("No Data Available for this QR Code"),
                     );
                   }
+                  globaldata().driverFirstName = snapshot.data![0].firstName;
+                  globaldata().driverLastName = snapshot.data![0].lastName;
+                  globaldata().driverLicenseNumber = snapshot.data![0].licenseNum;
+                  globaldata().DriverID = snapshot.data![0].IDnum;
+                  print(globaldata().driverFirstName);
+                  return ListView.builder(
+                    itemCount: snapshot.data!.length,
+                    itemBuilder: (context, index) {
+                      return displayCard(snapshot.data![index]);
+                    },
+                  );
                 } else {
                   return const Center(
                     child: Text("No Data Available"),
