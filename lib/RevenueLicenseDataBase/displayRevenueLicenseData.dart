@@ -52,7 +52,7 @@ class _DisplayDataState extends State<DisplayData> {
           children: [
             const SizedBox(height: 20),
             const Text(
-              "Enter the Vehicle Number",
+              "Enter Vehicle Number",
               style: TextStyle(
                   fontSize: 35,
                   fontWeight: FontWeight.bold,

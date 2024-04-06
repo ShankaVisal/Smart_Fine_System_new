@@ -109,7 +109,6 @@ class _loginPageState extends State<loginPage> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => homePage(
-                                          name: _user.text,
                                           pageName: 'login',
                                         )));
                           } catch (e) {
