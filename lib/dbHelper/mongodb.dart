@@ -12,12 +12,24 @@ class MongoDatabase{
     await db.open();
     inspect(db);
     userCollection = db.collection(USER_COLLECTION);
+    if(db.open()==true){
+      print("connected with test databse");
+    }else{
+      print("not connect with test databse");
+    }
+
 
     db_RE = await Db.create(MONGO_RE_LI_CONN_URL);
     await db_RE.open();
     inspect(db_RE);
     collection_RE = db_RE.collection(RE_LI_COLLECTION);
     FINES_DB = db_RE.collection(USER_FINES);
+    if(db_RE==true){
+      print("connected with test MiniProject");
+    }else{
+      print("not connect with test MiniProject");
+    }
+
 
   }
 

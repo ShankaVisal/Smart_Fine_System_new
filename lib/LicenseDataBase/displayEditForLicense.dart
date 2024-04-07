@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:untitled27/Firebase/Login%20page.dart';
 import 'package:untitled27/MyGlobals.dart';
+import '../Fines/issueFines.dart';
+import '../Home Page.dart';
+import '../RevenueLicenseDataBase/displayRevenueLicenseData.dart';
 import 'MongoDbModelEditForLicense.dart';
 import '../dbHelper/mongodb.dart';
 
@@ -30,47 +34,96 @@ class _MongoDbDisplayState extends State<MongoDbDisplay> {
         .toList();
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('License Details'),
+        leading: Container(
+          margin: const EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            color: const Color(0xFF005EA3),
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: [
+              BoxShadow(
+                color: const Color.fromARGB(255, 44, 44, 44).withOpacity(0.5),
+                spreadRadius: 5,
+                blurRadius: 7,
+                // changes position of shadow
+              ),
+            ],
+          ),
+          child: GestureDetector(
+            child: const Icon(Icons.arrow_back),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+        ),
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: FutureBuilder<List<MongoDbModel1>>(
-            future: _dataFuture,
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              } else {
-                if (snapshot.hasData) {
-                  if (snapshot.data!.isEmpty) {
-                    return Center(
-                      child: Text("No Data Available for this QR Code"),
-                    );
-                  }
-                  globaldata().driverFirstName = snapshot.data![0].firstName;
-                  globaldata().driverLastName = snapshot.data![0].lastName;
-                  globaldata().driverLicenseNumber = snapshot.data![0].licenseNum;
-                  globaldata().DriverID = snapshot.data![0].IDnum;
-                  print(globaldata().driverFirstName);
-                  return ListView.builder(
-                    itemCount: snapshot.data!.length,
-                    itemBuilder: (context, index) {
-                      return displayCard(snapshot.data![index]);
-                    },
-                  );
-                } else {
-                  return const Center(
-                    child: Text("No Data Available"),
-                  );
-                }
-              }
-            },
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(height: 20),
+              const Text(
+                "Driving License Details",
+                style: TextStyle(
+                    fontSize: 35,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
+              ),
+              const SizedBox(height: 10),
+              CircleAvatar(
+                backgroundImage: NetworkImage(
+                  globaldata().url,
+                ),
+                radius: 80,
+              ),
+
+              Expanded(
+                child: FutureBuilder<List<MongoDbModel1>>(
+                  future: _dataFuture,
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    } else {
+                      if (snapshot.hasData) {
+                        if (snapshot.data!.isEmpty) {
+                          return Center(
+                            child: Text("No Data Available for this QR Code"),
+                          );
+                        }
+                        globaldata().url = snapshot.data![0].url;
+                        globaldata().driverFirstName = snapshot.data![0].firstName;
+                        globaldata().driverLastName = snapshot.data![0].lastName;
+                        globaldata().driverLicenseNumber = snapshot.data![0].licenseNum;
+                        globaldata().DriverID = snapshot.data![0].IDnum;
+                        print(globaldata().driverFirstName);
+                        return ListView.builder(
+                          itemCount: snapshot.data!.length,
+                          itemBuilder: (context, index) {
+                            return displayCard(snapshot.data![index]);
+                          },
+                        );
+                      } else {
+                        return const Center(
+                          child: Text("No Data Available"),
+                        );
+                      }
+                    }
+                  },
+                ),
+              ),
+              MainActionButton(text: "Check Vehicle", onTap: (){
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => DisplayData()));
+              }),
+            ],
           ),
         ),
       ),

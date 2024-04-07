@@ -17,6 +17,12 @@ class userFines extends StatefulWidget {
   State<userFines> createState() => _userFinesState();
 }
 
+
+const textStyle = TextStyle(
+  fontSize: 18.0,
+  color: Colors.white,
+);
+
 class _userFinesState extends State<userFines> {
   @override
   Widget build(BuildContext context) {
@@ -63,13 +69,14 @@ class _userFinesState extends State<userFines> {
               ),
               const SizedBox(height: 20),
               Expanded(
-                child: SingleChildScrollView(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF7F8489),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    height: height/3*2,
+                child: Container(
+                  padding: EdgeInsets.all(10.0),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF7F8489),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  height: height/3*2,
+                  child: SingleChildScrollView(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,19 +84,20 @@ class _userFinesState extends State<userFines> {
                       children: [
                         Center(
                           child: Column(
-
+                    
                             children: [
                               Text("Total is", style: TextStyle(fontSize: 40),),
                               Text("Rs: ${widget.total}.00",style: TextStyle(fontSize: 60,fontWeight: FontWeight.bold),),
                             ],
                           ),
                         ),
-
+                    
                         Text("Driver Name -  ${globaldata().driverFirstName} " +
-                            "${globaldata().driverLastName}"),
-                        Text("License Number - ${globaldata().driverLicenseNumber}"),
-                        Text("Identity Card Number - ${globaldata().DriverID}"),
-                        Text("Vehicle Number - ${globaldata().vehicleNumber}"),
+                            "${globaldata().driverLastName}",style: textStyle,),
+                        Text("License Number - ${globaldata().driverLicenseNumber}",style: textStyle,),
+                        Text("Identity Card Number - ${globaldata().DriverID}",style: textStyle,),
+                        Text("Vehicle Number - ${globaldata().vehicleNumber}",style: textStyle,),
+                        SizedBox(height: 30,),
                         Column(
                           children: [
                             for (var fine in fines)
@@ -98,15 +106,29 @@ class _userFinesState extends State<userFines> {
                                   if (fine.isChecked)
                                     Row(
                                       children: [
-                                        Text(fine.name),
-                                        Text("${fine.amount}"),
+                                        Expanded(
+                                          flex: 3, // Adjust the flex factor as needed
+                                          child: Text(
+                                            fine.name,
+                                            style: textStyle,
+                                            softWrap: true, // Enable automatic line breaks
+                                          ),
+                                        ),
+                                        Expanded(
+                                          flex: 1, // Adjust the flex factor as needed
+                                          child: Text(
+                                            "${fine.amount}.00",
+                                            style: textStyle,
+                                          ),
+                                        ),
                                       ],
                                     ),
+                                  SizedBox(height: 10,),
                                 ],
                               )
                           ],
                         ),
-
+                    
                       ],
                     ),
                   ),

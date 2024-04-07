@@ -120,7 +120,7 @@ class _issueFinesState extends State<issueFines> {
               SizedBox(
                 width: double.infinity,
                 child: Text(
-                  'Total fine - $total',
+                  'Total fine - Rs. $total .00',
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                       color: Colors.red,
@@ -132,7 +132,7 @@ class _issueFinesState extends State<issueFines> {
                 height: 16,
               ),
               MainActionButton(
-                  text: "Save",
+                  text: "Next",
                   onTap: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => userFines(total: total,)));

@@ -16,6 +16,7 @@ class MongoDbModel1 {
     required this.licenseNum,
     required this.address,
     required this.vehicleCategory,
+    required this.url,
   });
   ObjectId id;
   String firstName;
@@ -27,6 +28,7 @@ class MongoDbModel1 {
   String licenseNum;
   String address;
   String vehicleCategory;
+  String url;
 
   factory MongoDbModel1.fromJson(Map<String, dynamic> json) => MongoDbModel1(
     id: json['_id'],
@@ -39,6 +41,7 @@ class MongoDbModel1 {
     licenseNum: json['licenseNum'],
     address: json['address'],
     vehicleCategory: json['vehicleCategory'],
+    url: json['url'],
 
   );
 
@@ -53,6 +56,7 @@ class MongoDbModel1 {
     'licenseNum': licenseNum,
     'address': address,
     'vehicleCategory':vehicleCategory,
+    'url':url,
 
 
 

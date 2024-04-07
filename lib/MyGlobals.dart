@@ -4,6 +4,7 @@ class globaldata {
   String DriverID = "please scan qr again";
   String driverLicenseNumber = "please scan qr again";
   String vehicleNumber = "Re enter vehicle number";
+  String url = "Error";
 
 
   // Singleton pattern
