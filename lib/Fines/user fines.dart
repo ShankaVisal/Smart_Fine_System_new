@@ -78,56 +78,22 @@ class _userFinesState extends State<userFines> {
                   height: height/3*2,
                   child: SingleChildScrollView(
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+
                       // crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Center(
                           child: Column(
-                    
+
                             children: [
                               Text("Total is", style: TextStyle(fontSize: 40),),
                               Text("Rs: ${widget.total}.00",style: TextStyle(fontSize: 60,fontWeight: FontWeight.bold),),
                             ],
                           ),
                         ),
-                    
-                        Text("Driver Name -  ${globaldata().driverFirstName} " +
-                            "${globaldata().driverLastName}",style: textStyle,),
-                        Text("License Number - ${globaldata().driverLicenseNumber}",style: textStyle,),
-                        Text("Identity Card Number - ${globaldata().DriverID}",style: textStyle,),
-                        Text("Vehicle Number - ${globaldata().vehicleNumber}",style: textStyle,),
+
+
                         SizedBox(height: 30,),
-                        Column(
-                          children: [
-                            for (var fine in fines)
-                              Column(
-                                children: [
-                                  if (fine.isChecked)
-                                    Row(
-                                      children: [
-                                        Expanded(
-                                          flex: 3, // Adjust the flex factor as needed
-                                          child: Text(
-                                            fine.name,
-                                            style: textStyle,
-                                            softWrap: true, // Enable automatic line breaks
-                                          ),
-                                        ),
-                                        Expanded(
-                                          flex: 1, // Adjust the flex factor as needed
-                                          child: Text(
-                                            "${fine.amount}.00",
-                                            style: textStyle,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  SizedBox(height: 10,),
-                                ],
-                              )
-                          ],
-                        ),
+
                     
                       ],
                     ),
@@ -146,3 +112,7 @@ class _userFinesState extends State<userFines> {
     );
   }
 }
+
+
+
+
