@@ -90,10 +90,30 @@ class _userFinesState extends State<userFines> {
                             ],
                           ),
                         ),
-
-
+                        displayCard(),
                         SizedBox(height: 30,),
+                        Column(
+                          children: [
+                            for (var fine in fines)
+                              Column(
+                                children: [
+                                  if (fine.isChecked)
+                                    Table(
+                                      columnWidths: {
+                                        0: FlexColumnWidth(2), // Adjust the column widths as needed
+                                        1: FlexColumnWidth(2),
+                                      },
+                                      children: [
+                                        _buildTableRowFines("${fine.name}", "${fine.amount}.00"),
 
+                                      ],
+                                    ),
+                                    
+                                  SizedBox(height: 10,),
+                                ],
+                              )
+                          ],
+                        ),
                     
                       ],
                     ),
@@ -112,7 +132,88 @@ class _userFinesState extends State<userFines> {
     );
   }
 }
+Widget displayCard() {
+  return Card(
+    child: Padding(
+      padding: const EdgeInsets.all(15.0),
+      child: Table(
+        columnWidths: {
+          0: FlexColumnWidth(2), // Adjust the column widths as needed
+          1: FlexColumnWidth(2),
+        },
+        children: [
+          _buildTableRow('Driver Name', "${globaldata().driverFirstName} ${globaldata().driverLastName}"),
+          _buildTableRow('License Number', "${globaldata().driverLicenseNumber}"),
+          _buildTableRow('Identity Card Number', "${globaldata().DriverID}"),
+          _buildTableRow('Vehicle Number', "${globaldata().vehicleNumber}"),
+
+        ],
+      ),
+    ),
+  );
+}
 
 
 
+
+
+TableRow _buildTableRow(String label, String value) {
+  return TableRow(
+    children: [
+      Row(
+        crossAxisAlignment: CrossAxisAlignment.start, // Align text to the top
+        children: [
+          Expanded(
+            flex: 3, // Adjust flex factor as needed
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 5.0),
+              child: Text(
+                label,
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 2, // Adjust flex factor as needed
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 5.0),
+              child: Text(value),
+            ),
+          ),
+        ],
+      ),
+    ],
+  );
+}
+
+
+
+TableRow _buildTableRowFines(String label, String value) {
+  return TableRow(
+    children: [
+      Row(
+        crossAxisAlignment: CrossAxisAlignment.start, // Align text to the top
+        children: [
+          Expanded(
+            flex: 4, // Adjust flex factor as needed
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 5.0),
+              child: Text(
+                label,
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 1, // Adjust flex factor as needed
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 5.0),
+              child: Text(value),
+            ),
+          ),
+        ],
+      ),
+    ],
+  );
+}
 
