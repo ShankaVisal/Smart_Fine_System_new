@@ -14,31 +14,6 @@ class _issueFinesState extends State<issueFines> {
   late double screenWidth;
   late double screenHeight;
   int total = 0;
-
-  // List<Fine> fines = [
-  //   Fine("Driving without registration", 10000, false),
-  //   Fine("Driving without insurance", 20000, false),
-  //   Fine("Driving with wrong number plates", 10000, false),
-  //   Fine("Using the car regardless of the terms of the license", 30000, false),
-  //   Fine("Driving without a driver’s license or license without plates", 5000, false),
-  //   Fine("Driving without a license or driver’s license", 2000, false),
-  //   Fine("Not having license or driver’s license when stopped", 10000, false),
-  //   Fine("Reckless driving without accident", 11000, false),
-  //   Fine("Car collision by careless driving", 25000, false),
-  //   Fine("Driving without seat belt", 2000, false),
-  //   Fine("Traveling with passengers without wearing seat belts", 2000, false),
-  //   Fine("Failure to obey traffic signs", 10000, false),
-  //   Fine("Failure to drive to the left when overtaking a vehicle", 5000, false),
-  //   Fine("Overtaking on the left", 5000, false),
-  //   Fine("Not allowing other overtaking vehicles to pass", 5000, false),
-  //   Fine("Driving from the station obstructing the road", 4000, false),
-  //   Fine("Overtaking where the road is not visible", 9000, false),
-  //   Fine("Driving back more than two vehicle lengths to turn", 3000, false),
-  //   Fine("Obstructing the free passage of the vehicle", 5000, false),
-  //   Fine("Using mobile phone or other electronic device while driving", 10000, false),
-  //   Fine("Keeping an electronic device between the driver", 10000, false),
-  // ];
-
   @override
   Widget build(BuildContext context) {
     screenWidth = MediaQuery.of(context).size.width;
@@ -162,9 +137,7 @@ class _issueFinesState extends State<issueFines> {
           onChanged: onChanged,
           activeColor: const Color(0xFF005EA3),
           side: const BorderSide(
-            // ======> CHANGE THE BORDER COLOR HERE <======
             color: Color(0xFF005EA3),
-            // Give your checkbox border a custom width
             width: 1.5,
           ),
         ),

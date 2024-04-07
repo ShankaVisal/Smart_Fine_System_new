@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:untitled27/Firebase/Login%20page.dart';
+import 'package:untitled27/MyGlobals.dart';
 import 'package:untitled27/RevenueLicenseDataBase/Display%20Detatils.dart';
 import '../dbHelper/mongodb.dart';
+import '../fines.dart';
 
 class DisplayData extends StatefulWidget {
   @override
@@ -83,6 +85,9 @@ class _DisplayDataState extends State<DisplayData> {
               text: "Next",
               onTap: () {
                 setState(() {
+                  for (var fine in fines)
+                    fine.isChecked = false;
+                  globaldata().isQR = false;
                   String upperCaseVehicleNumber =
                       vehicleNumberController.text.toUpperCase();
                   data = MongoDatabase.getDataFromRevenue(

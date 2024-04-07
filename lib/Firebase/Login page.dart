@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:untitled27/Home%20Page.dart';
-import 'package:untitled27/Firebase/Signup%20page.dart';
+
 
 class loginPage extends StatefulWidget {
   const loginPage({super.key});
@@ -20,7 +20,7 @@ class _loginPageState extends State<loginPage> {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: const EdgeInsets.only(top: 70, left: 30, right: 30),
+          padding: const EdgeInsets.only(top: 100, left: 30, right: 30),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,20 +40,8 @@ class _loginPageState extends State<loginPage> {
                       color: Color.fromARGB(255, 126, 127, 128)),
                 ),
                 const SizedBox(
-                  height: 60,
+                  height: 80,
                 ),
-                TextField(
-                  controller: _user,
-                  decoration: InputDecoration(
-                    labelText: 'Username',
-                    filled: true,
-                    fillColor: const Color.fromARGB(255, 114, 114, 114),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                        borderSide: BorderSide.none),
-                  ),
-                ),
-                const SizedBox(height: 16.0),
                 TextField(
                   controller: _email,
                   decoration: InputDecoration(
@@ -80,22 +68,21 @@ class _loginPageState extends State<loginPage> {
                 ),
                 const SizedBox(height: 16.0),
                 Padding(
-                  padding: const EdgeInsets.only(top: 70),
+                  padding: const EdgeInsets.only(top: 20),
                   child: Column(
                     children: [
                       MainActionButton(
                         text: 'Login',
                         onTap: () async {
                           if (_email.text.isEmpty ||
-                              _pwd.text.isEmpty ||
-                              _user.text.isEmpty) {
-                            // If any of the fields are empty, show an error message
+                              _pwd.text.isEmpty) {
+
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
                                 content: Text('Please fill all the fields'),
                               ),
                             );
-                            return; // Exit the function if any of the fields are empty
+                            return;
                           }
                           try {
                             await FirebaseAuth.instance
@@ -103,8 +90,6 @@ class _loginPageState extends State<loginPage> {
                               email: _email.text,
                               password: _pwd.text,
                             );
-                            // Navigate to the homePage if sign-in is successful
-                            // ignore: use_build_context_synchronously
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -112,29 +97,28 @@ class _loginPageState extends State<loginPage> {
                                           pageName: 'login',
                                         )));
                           } catch (e) {
-                            // Handle the exception/error here
+
                             print(
-                                'Login failed: $e'); // You can log the error for debugging purposes
-                            // Show a snackbar, dialog, or any other UI to inform the user about the error
+                                'Login failed: $e');
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: Text('Login failed: $e'),
-                                // You can customize the duration, behavior, and other properties of the snackbar
+
                               ),
                             );
                           }
                         },
                       ),
                       const SizedBox(height: 16.0),
-                      MainActionButton(
-                        text: 'Sign Up',
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const signUpPage()));
-                        },
-                      ),
+                      // MainActionButton(
+                      //   text: 'Sign Up',
+                      //   onTap: () {
+                      //     Navigator.push(
+                      //         context,
+                      //         MaterialPageRoute(
+                      //             builder: (context) => const signUpPage()));
+                      //   },
+                      // ),
                     ],
                   ),
                 ),

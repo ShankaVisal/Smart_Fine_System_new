@@ -86,7 +86,7 @@ class _userFinesState extends State<userFines> {
 
                             children: [
                               Text("Total is", style: TextStyle(fontSize: 40),),
-                              Text("Rs: ${widget.total}.00",style: TextStyle(fontSize: 60,fontWeight: FontWeight.bold),),
+                              Text("Rs: ${widget.total}.00",style: TextStyle(fontSize: 50,fontWeight: FontWeight.bold),),
                             ],
                           ),
                         ),

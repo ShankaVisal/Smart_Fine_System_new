@@ -3,7 +3,7 @@ import 'package:untitled27/Firebase/Login%20page.dart';
 import 'package:untitled27/MyGlobals.dart';
 import '../Fines/issueFines.dart';
 import '../Home Page.dart';
-import '../RevenueLicenseDataBase/displayRevenueLicenseData.dart';
+import '../RevenueLicenseDataBase/RevenueLicenseData.dart';
 import 'MongoDbModelEditForLicense.dart';
 import '../dbHelper/mongodb.dart';
 
@@ -87,9 +87,10 @@ class _MongoDbDisplayState extends State<MongoDbDisplay> {
                     if (snapshot.hasData) {
                       if (snapshot.data!.isEmpty) {
                         return Center(
-                          child: Text("No Data Available for this QR Code"),
+                          child: Text(""),
                         );
                       }
+                      globaldata().isQR = true;
                       globaldata().url = snapshot.data![0].url;
                       // globaldata().driverFirstName = snapshot.data![0].firstName;
                       // globaldata().driverLastName = snapshot.data![0].lastName;
@@ -151,9 +152,13 @@ class _MongoDbDisplayState extends State<MongoDbDisplay> {
                   },
                 ),
               ),
-              MainActionButton(text: "Check Vehicle", onTap: (){
+              globaldata().isQR==true ? MainActionButton(text: "Check Vehicle", onTap: (){
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => DisplayData()));
+              }):
+              MainActionButton(text: "Menu", onTap: (){
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => homePage(pageName: "QR page")));
               }),
             ],
           ),

@@ -8,16 +8,16 @@ import 'package:untitled27/MyGlobals.dart';
 import '../Firebase/Login page.dart';
 import '../dbHelper/mongodb.dart';
 
-class displayDetails extends StatefulWidget {
+class displayDetailsOnly extends StatefulWidget {
   final String vehicleNumber;
 
-  displayDetails({required this.vehicleNumber});
+  displayDetailsOnly({required this.vehicleNumber});
 
   @override
-  State<displayDetails> createState() => _displayDetailsState();
+  State<displayDetailsOnly> createState() => _displayDetailsOnlyState();
 }
 
-class _displayDetailsState extends State<displayDetails> {
+class _displayDetailsOnlyState extends State<displayDetailsOnly> {
   late Future<List<Map<String, dynamic>>> data;
 
   @override
@@ -177,8 +177,8 @@ class _displayDetailsState extends State<displayDetails> {
                                 ),
                               )
 
-                              // Add more fields as needed
-                              );
+                            // Add more fields as needed
+                          );
                         },
                       );
                     }
@@ -197,22 +197,10 @@ class _displayDetailsState extends State<displayDetails> {
                         context,
                         MaterialPageRoute(
                             builder: (context) => const homePage(
-                                  pageName: 'login',
-                                )));
+                              pageName: 'login',
+                            )));
                   },
                 ),
-                const SizedBox(
-                  height: 10.0,
-                ),
-                globaldata().isQR == true ?actionButton(
-                  text: 'Issue Fine',
-                  btnColor: Colors.red,
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => issueFines()));
-                  },
-                ):
-                Container(),
               ])
             ],
           ),
