@@ -67,7 +67,7 @@ class _MongoDbDisplayState extends State<MongoDbDisplay> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const SizedBox(height: 20),
+              // const SizedBox(height: 10),
               const Text(
                 "Driving License Details",
                 style: TextStyle(
@@ -76,12 +76,44 @@ class _MongoDbDisplayState extends State<MongoDbDisplay> {
                     color: Colors.white),
               ),
               const SizedBox(height: 10),
-              CircleAvatar(
-                backgroundImage: NetworkImage(
-                  globaldata().url,
-                ),
-                radius: 80,
+              FutureBuilder<List<MongoDbModel1>>(
+                future: _dataFuture,
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  } else {
+                    if (snapshot.hasData) {
+                      if (snapshot.data!.isEmpty) {
+                        return Center(
+                          child: Text("No Data Available for this QR Code"),
+                        );
+                      }
+                      globaldata().url = snapshot.data![0].url;
+                      // globaldata().driverFirstName = snapshot.data![0].firstName;
+                      // globaldata().driverLastName = snapshot.data![0].lastName;
+                      print(globaldata().driverFirstName);
+                      return CircleAvatar(
+                        backgroundImage: NetworkImage(
+                          globaldata().url,
+                        ),
+                        radius: 80,
+                      );
+                    } else {
+                      return const Center(
+                        child: Text("No Data Available"),
+                      );
+                    }
+                  }
+                },
               ),
+              // CircleAvatar(
+              //   backgroundImage: NetworkImage(
+              //     globaldata().url,
+              //   ),
+              //   radius: 80,
+              // ),
 
               Expanded(
                 child: FutureBuilder<List<MongoDbModel1>>(
