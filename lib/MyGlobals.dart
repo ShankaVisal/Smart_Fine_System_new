@@ -1,10 +1,9 @@
 class globaldata {
-  String driverFirstName = "";
-  String driverLastName = "";
-  String DriverID = "";
-  String driverLicenseNumber = "kg";
-  String vehicleNumber = "sss";
-  String vehicleCategory = "";
+  String driverFirstName = "please scan qr again";
+  String driverLastName = "please scan qr again";
+  String DriverID = "please scan qr again";
+  String driverLicenseNumber = "please scan qr again";
+  String vehicleNumber = "Re enter vehicle number";
 
 
   // Singleton pattern

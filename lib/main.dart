@@ -28,14 +28,15 @@ class MyApp extends StatelessWidget {
     ScreenHeight = MediaQuery.of(context).size.height;
     return MaterialApp(
       title: 'Smart Driving License Portal',
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner:
+       false,
       theme: darkTheme,
       home: FutureBuilder(
           future: FirebaseAuth.instance.authStateChanges().first, 
           builder: (context, AsyncSnapshot<User?> snapshot){
             if(snapshot.connectionState == ConnectionState.done){
               if(snapshot.hasData){
-                return homePage(name: "name", pageName: "pasge name");
+                return homePage(pageName: "page name");
               } else{
                 return splashScreen();
               }
