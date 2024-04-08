@@ -102,7 +102,7 @@ class _loginPageState extends State<loginPage> {
                                 'Login failed: $e');
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
-                                content: Text('Login failed: $e'),
+                                content: Text('Invalid login, please try again !!'),
 
                               ),
                             );

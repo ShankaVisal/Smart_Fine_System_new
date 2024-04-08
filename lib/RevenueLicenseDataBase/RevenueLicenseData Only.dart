@@ -83,7 +83,7 @@ class _DisplayDataOnlyState extends State<DisplayDataOnly> {
             ),
             const SizedBox(height: 20),
             MainActionButton(
-              text: "Home",
+              text: "Next",
               onTap: () {
                 setState(() {
                   for (var fine in fines)
@@ -110,3 +110,5 @@ class _DisplayDataOnlyState extends State<DisplayDataOnly> {
     super.dispose();
   }
 }
+
+

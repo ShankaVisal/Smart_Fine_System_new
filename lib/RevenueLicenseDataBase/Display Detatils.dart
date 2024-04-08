@@ -115,65 +115,27 @@ class _displayDetailsState extends State<displayDetails> {
                                 textAlign: TextAlign.center,
                               ),
                               subtitle: Center(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    const SizedBox(
-                                      height: 20,
+                                child: Card(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(15.0),
+                                    child: Table(
+                                      columnWidths: {
+                                        0: FlexColumnWidth(2), // Adjust the column widths as needed
+                                        1: FlexColumnWidth(2),
+                                      },
+                                      children: [
+                                        _buildTableRow('Owner', "${item['name_of_owner'] ?? ''}"),
+                                        _buildTableRow('Class of Vehicle', "${item['class_of_vehicle'] ?? ''}"),
+                                        _buildTableRow('Fuel Type', "${item['fuel_type'] ?? ''}"),
+                                        _buildTableRow('Vehicle Number', "${item['vehicle_number'] ?? ''}"),
+                                        _buildTableRow('Unladen Gross Weight', "${item['unladen_gross_weight'] ?? ''}"),
+                                        _buildTableRow('Number of Seats', "${item['number_of_seats'] ?? ''}"),
+                                        _buildTableRow('Annual Fee, Arrears', "${item['annual_fee_arrears_fines_paid'] ?? ''}"),
+                                        _buildTableRow('License Valid From', "${item['license_valid_from'] ?? ''}"),
+                                        _buildTableRow('License Valid To', "${item['license_valid_to'] ?? ''}"),
+                                      ],
                                     ),
-                                    Text(
-                                        'Owner: ${item['name_of_owner'] ?? ''}',
-                                        style: textStyle),
-                                    const SizedBox(
-                                      height: 4,
-                                    ),
-                                    Text(
-                                        'Class of Vehicle: ${item['class_of_vehicle'] ?? ''}',
-                                        style: textStyle),
-                                    const SizedBox(
-                                      height: 4,
-                                    ),
-                                    Text(
-                                        'Fuel Type: ${item['fuel_type'] ?? ''}',
-                                        style: textStyle),
-                                    const SizedBox(
-                                      height: 4,
-                                    ),
-                                    Text(
-                                        'Vehicle Number: ${item['vehicle_number'] ?? ''}',
-                                        style: textStyle),
-                                    const SizedBox(
-                                      height: 4,
-                                    ),
-                                    Text(
-                                        'Unladen Gross Weight: ${item['unladen_gross_weight'] ?? ''}',
-                                        style: textStyle),
-                                    const SizedBox(
-                                      height: 4,
-                                    ),
-                                    Text(
-                                        'Number of Seats: ${item['number_of_seats'] ?? ''}',
-                                        style: textStyle),
-                                    const SizedBox(
-                                      height: 4,
-                                    ),
-                                    Text(
-                                        'Annual Fee, Arrears, Fines Paid: ${item['annual_fee_arrears_fines_paid'] ?? ''}',
-                                        style: textStyle),
-                                    const SizedBox(
-                                      height: 4,
-                                    ),
-                                    Text(
-                                        'License Valid From: ${item['license_valid_from'] ?? ''}',
-                                        style: textStyle),
-                                    const SizedBox(
-                                      height: 4,
-                                    ),
-                                    Text(
-                                        'License Valid To: ${item['license_valid_to'] ?? ''}',
-                                        style: textStyle),
-                                    // Add more fields as needed
-                                  ],
+                                  ),
                                 ),
                               )
 
@@ -257,3 +219,36 @@ class actionButton extends StatelessWidget {
     );
   }
 }
+
+
+TableRow _buildTableRow(String label, String value) {
+  return TableRow(
+    children: [
+      Row(
+        crossAxisAlignment: CrossAxisAlignment.start, // Align text to the top
+        children: [
+          Expanded(
+            flex: 3, // Adjust flex factor as needed
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 5.0),
+              child: Text(
+                label,
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 2, // Adjust flex factor as needed
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 5.0),
+              child: Text(value),
+            ),
+          ),
+        ],
+      ),
+    ],
+  );
+}
+
+
+

@@ -92,9 +92,12 @@ class _MongoDbDisplayState extends State<MongoDbDisplay> {
                       }
                       globaldata().isQR = true;
                       globaldata().url = snapshot.data![0].url;
-                      // globaldata().driverFirstName = snapshot.data![0].firstName;
-                      // globaldata().driverLastName = snapshot.data![0].lastName;
+                      globaldata().driverFirstName = snapshot.data![0].firstName;
+                      globaldata().driverLastName = snapshot.data![0].lastName;
+                      globaldata().driverLicenseNumber = snapshot.data![0].licenseNum;
+                      globaldata().DriverID = snapshot.data![0].IDnum;
                       print(globaldata().driverFirstName);
+
                       return CircleAvatar(
                         backgroundImage: NetworkImage(
                           globaldata().url,

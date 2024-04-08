@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:untitled27/Firebase/Login%20page.dart';
+import 'package:untitled27/Home%20Page.dart';
 import 'package:untitled27/MyGlobals.dart';
 import 'package:untitled27/RevenueLicenseDataBase/Display%20Detatils.dart';
 
@@ -124,6 +125,8 @@ class _userFinesState extends State<userFines> {
               // MainActionButton(text: 'Issue', onTap: )
               actionButton(text: "Issue", onTap: () async{
                 await MongoDatabase.saveFinesToDatabase(total1);
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Save Fines"),));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> homePage(pageName: "user fine")));
               }, btnColor: Colors.red)
             ],
           ),
