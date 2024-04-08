@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:untitled27/Firebase/Login%20page.dart';
+import 'package:untitled27/RevenueLicenseDataBase/Display%20Details%20Only.dart';
 
 class HelpDesk extends StatelessWidget {
   HelpDesk({Key? key}) : super(key: key);
@@ -43,26 +45,27 @@ class HelpDesk extends StatelessWidget {
           ),
         ),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text(
-            "HelpDesk",
-            style: TextStyle(
-              fontSize: 35,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 20),
+            const Text(
+              "Help Desk",
+              style: TextStyle(
+                fontSize: 35,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
             ),
-          ),
-          const SizedBox(height: 20),
-          Container(
-            height: screenHeight / 5 * 3,
-            child: Expanded(
+            const SizedBox(height: 20),
+            Expanded(
               child: ListView.builder(
                 itemCount: steps.length,
                 itemBuilder: (context, index) {
                   return Card(
-                    color: Colors.white,
+                    color: const Color.fromARGB(51, 217, 217, 217),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: ListTile(
@@ -84,8 +87,10 @@ class HelpDesk extends StatelessWidget {
                 },
               ),
             ),
-          ),
-        ],
+            SizedBox(height: 20.0,),
+            actionButton(text: "Emergency Call", onTap: (){}, btnColor: Colors.red)
+          ],
+        ),
       ),
     );
   }

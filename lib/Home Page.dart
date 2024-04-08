@@ -63,7 +63,7 @@ class _homePageState extends State<homePage> {
           ],
         ),
         body: Padding(
-          padding: const EdgeInsets.only(top: 70, left: 30, right: 30),
+          padding: const EdgeInsets.only(top: 40, left: 30, right: 30),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
