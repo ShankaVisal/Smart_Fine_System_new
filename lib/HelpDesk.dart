@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Support extends StatelessWidget {
-  Support({Key? key}) : super(key: key);
+class HelpDesk extends StatelessWidget {
+  HelpDesk({Key? key}) : super(key: key);
 
   final List<String> steps = [
     "Scan QR Code",
@@ -47,7 +47,7 @@ class Support extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            "Support",
+            "HelpDesk",
             style: TextStyle(
               fontSize: 35,
               fontWeight: FontWeight.bold,
