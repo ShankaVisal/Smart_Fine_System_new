@@ -20,7 +20,7 @@ class _loginPageState extends State<loginPage> {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: const EdgeInsets.only(top: 70, left: 30, right: 30),
+          padding: const EdgeInsets.only(top: 120, left: 30, right: 30),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,19 +40,19 @@ class _loginPageState extends State<loginPage> {
                       color: Color.fromARGB(255, 126, 127, 128)),
                 ),
                 const SizedBox(
-                  height: 60,
+                  height: 40,
                 ),
-                TextField(
-                  controller: _user,
-                  decoration: InputDecoration(
-                    labelText: 'Username',
-                    filled: true,
-                    fillColor: const Color.fromARGB(255, 114, 114, 114),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                        borderSide: BorderSide.none),
-                  ),
-                ),
+                // TextField(
+                //   controller: _user,
+                //   decoration: InputDecoration(
+                //     labelText: 'Username',
+                //     filled: true,
+                //     fillColor: const Color.fromARGB(255, 114, 114, 114),
+                //     border: OutlineInputBorder(
+                //         borderRadius: BorderRadius.circular(20.0),
+                //         borderSide: BorderSide.none),
+                //   ),
+                // ),
                 const SizedBox(height: 16.0),
                 TextField(
                   controller: _email,
@@ -80,15 +80,14 @@ class _loginPageState extends State<loginPage> {
                 ),
                 const SizedBox(height: 16.0),
                 Padding(
-                  padding: const EdgeInsets.only(top: 70),
+                  padding: const EdgeInsets.only(top: 30),
                   child: Column(
                     children: [
                       MainActionButton(
                         text: 'Login',
                         onTap: () async {
                           if (_email.text.isEmpty ||
-                              _pwd.text.isEmpty ||
-                              _user.text.isEmpty) {
+                              _pwd.text.isEmpty ) {
                             // If any of the fields are empty, show an error message
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
@@ -118,23 +117,23 @@ class _loginPageState extends State<loginPage> {
                             // Show a snackbar, dialog, or any other UI to inform the user about the error
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
-                                content: Text('Login failed: $e'),
+                                content: Text('Login failed: Incorrect Password or Email'),
                                 // You can customize the duration, behavior, and other properties of the snackbar
                               ),
                             );
                           }
                         },
                       ),
-                      const SizedBox(height: 16.0),
-                      MainActionButton(
-                        text: 'Sign Up',
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const signUpPage()));
-                        },
-                      ),
+                      // const SizedBox(height: 16.0),
+                      // MainActionButton(
+                      //   text: 'Sign Up',
+                      //   onTap: () {
+                      //     Navigator.push(
+                      //         context,
+                      //         MaterialPageRoute(
+                      //             builder: (context) => const signUpPage()));
+                      //   },
+                      // ),
                     ],
                   ),
                 ),
