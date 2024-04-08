@@ -22,6 +22,7 @@ class _MongoDbInsertState extends State<MongoDbInsert> {
   var licenseNumController = new TextEditingController();
   var addressController = new TextEditingController();
   var vehicleCategoryController = new TextEditingController();
+  var urlController = new TextEditingController();
 
 
   var _checkInsertUpdate = 'Insert';
@@ -40,6 +41,7 @@ class _MongoDbInsertState extends State<MongoDbInsert> {
       licenseNumController.text = data.licenseNum;
       addressController.text = data.address;
       vehicleCategoryController.text = data.vehicleCategory;
+      urlController.text = data.url;
       _checkInsertUpdate = 'Update';
     }
 
@@ -105,10 +107,16 @@ class _MongoDbInsertState extends State<MongoDbInsert> {
                     labelText: 'Vehicle Category'
                 ),
               ),
+              TextField(
+                controller: urlController,
+                decoration: const InputDecoration(
+                    labelText: 'image url'
+                ),
+              ),
               const SizedBox(height: 50,),
               ElevatedButton(
                   onPressed: (){
-                      _insertData(fnameController.text,lnameController.text,dobController.text,doiController.text,doeController.text,idNumController.text,licenseNumController.text,addressController.text,vehicleCategoryController.text);
+                    _insertData(fnameController.text,lnameController.text,dobController.text,doiController.text,doeController.text,idNumController.text,licenseNumController.text,addressController.text,vehicleCategoryController.text,urlController.text);
                   },
                   child: Text(_checkInsertUpdate)),
 
@@ -119,13 +127,13 @@ class _MongoDbInsertState extends State<MongoDbInsert> {
     );
   }
 
-  Future<void> _updateData( var  id, String fName, String lName, String dob, String doi, String doe, String idNum, String licenseNum,String address, String category) async{
-    final updateData = MongoDbModel1(id: id, firstName: fName, lastName: lName, DOB: dob, DOI: doi, DOE: doe, IDnum: idNum, licenseNum: licenseNum, address: address, vehicleCategory: category);
+  Future<void> _updateData( var  id, String fName, String lName, String dob, String doi, String doe, String idNum, String licenseNum,String address, String category, String url) async{
+    final updateData = MongoDbModel1(id: id, firstName: fName, lastName: lName, DOB: dob, DOI: doi, DOE: doe, IDnum: idNum, licenseNum: licenseNum, address: address, vehicleCategory: category, url:url);
   }
 
-  Future<void> _insertData(String fName, String lName, String dob, String doi, String doe, String idNum, String licenseNum,String address, String category)async {
+  Future<void> _insertData(String fName, String lName, String dob, String doi, String doe, String idNum, String licenseNum,String address, String category, String url)async {
     var _id = M.ObjectId();
-    final data = MongoDbModel1(id: _id, firstName: fName, lastName: lName, DOB: dob, DOI: doi, DOE: doe, IDnum: idNum, licenseNum: licenseNum, address: address, vehicleCategory: category);
+    final data = MongoDbModel1(id: _id, firstName: fName, lastName: lName, DOB: dob, DOI: doi, DOE: doe, IDnum: idNum, licenseNum: licenseNum, address: address, vehicleCategory: category, url: url);
     var result = await MongoDatabase.insert(data);
     ScaffoldMessenger.of(context)
         .showSnackBar((SnackBar(content: Text('Insertd ID' + _id.$oid))));
@@ -137,11 +145,12 @@ class _MongoDbInsertState extends State<MongoDbInsert> {
     lnameController.text = "";
     dobController.text = "";
     doiController.text = "";
-    dobController.text = "";
+    doeController.text = "";
     idNumController.text = "";
     licenseNumController.text = "";
     addressController.text = "";
     vehicleCategoryController.text = "";
+    urlController.text = "";
 
   }
 
